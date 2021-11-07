@@ -27,7 +27,6 @@ export function Product(props: InputInterface) {
   else{
     return(
       <div>
-      <div>empty</div>
         <br></br>
       </div>
     );
