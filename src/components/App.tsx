@@ -1,31 +1,35 @@
 import * as React from "react";
+import {FunctionComponent} from "react";
+import {createContext} from "react";
+import {useEffect} from "react";
+import {useState} from "react";
+import {AppContext} from "../AppContext";
 import InputInterface from '../InputInterface';
 import InputState from '../InputInterface';
 import {Input} from "./Input";
+import {Conversion} from "./Conversion";
+import {Product} from "./Product";
 
+export const App: FunctionComponent<InputInterface> = () => {
 
-/*
-function App() {
+  const [inputString, setInputString] = useState<string>("");
+  const [product, setProduct] = useState<string>("Corn");
+  const [unit, setUnit] = useState<string>("kg -> lb");
+
+  useEffect(()=>{
+    console.log(product);
+    console.log(unit);
+    console.log(inputString);
+  })
+
   return (
-      <h1>Agricultural Conversion Calculator</h1>
       <div>
-        <Input/>
+      <AppContext.Provider value={{productContext: [product, setProduct], unitContext: [unit, setUnit], inputStringContext:[inputString, setInputString]}} >
+          <Input/>
+          <Conversion/>
+          <Product/>
+      </AppContext.Provider>
       </div>
   );
 }
-*/
-export default class App extends React.Component<InputInterface, InputState> {
-  constructor (props: InputInterface){
-    super(props);
-  }
-  render() {
-    //const {inputString, unit} = this.props;
-    const inputString:string = this.props.inputString;
-    const unit:string = this.props.unit;
-    return (
-      <div>
-        <Input inputString={inputString} />
-      </div>
-    );
-  }
-}
+export default App;

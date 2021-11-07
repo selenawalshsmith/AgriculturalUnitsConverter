@@ -1,24 +1,25 @@
 import * as React from "react";
-import {useState} from "react";
+import {useState, useEffect, useContext} from "react";
 import InputInterface from '../InputInterface';
+import {AppContext} from "../AppContext";
 
 export function Input(props: InputInterface) {
-  const [inputString, setInput] = useState<string>("");
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    //setInput(this.inputString)
-    event.preventDefault();
-    setInput(event.currentTarget.value);
-    //alert(event.target.value);
-
-  }
+  //const [inputString, setInputString] = useState<string>();
+  //const {inputString, setInputString } = useContext(AppContext)
+  const {productContext, unitContext, inputStringContext} = useContext(AppContext);
+  const [inputString, setInputString] = inputStringContext;
   return (
       <form>
         <label>
           String Input
           <input
             type="text"
-            value={inputString}
-            onChange={handleChange}
+            onChange={
+              (e:React.ChangeEvent<HTMLInputElement>) =>{
+                setInputString(e.currentTarget.value);
+                //props.onChange(e.currentTarget.value);
+              }
+            }
           />
         </label>
       </form>
