@@ -1,11 +1,12 @@
 import * as React from "react";
 import {useState, useEffect, useContext} from "react";
 import InputInterface from '../InputInterface';
+import {AppContext} from "../AppContext";
 
 export function Product(props: InputInterface) {
-  const [product, setProduct] = useState<string>("Corn");
-  const [unit, setUnit] = useState<string>();
-  //const unitContext = useContext<string>();
+  const {productContext, unitContext, inputStringContext} = useContext(AppContext);
+  const [product, setProduct] = productContext;
+  const [unit, setUnit] = unitContext;
   if(unit == "kg/ha -> bu/ac"){
     return (
         <div>
