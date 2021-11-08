@@ -16,16 +16,16 @@ export const App: FunctionComponent<InputInterface> = () => {
   const [inputString, setInputString] = useState<string>("");
   const [product, setProduct] = useState<string>("Corn");
   const [unit, setUnit] = useState<string>("kg -> lb");
-  const [result, setResult] = useState<Array<string>>();
   //only update Result component when showResult increments.
   //Result component renders empty div while showResult == 0
   const [showResult, setShowResult] = useState<number>(0);
+  const [result, setResult] = useState<string>();
 
   useEffect(()=>{
-    console.log(product);
-    console.log(unit);
-    console.log(inputString);
-    console.log(showResult);
+    console.log("App Component state (product)" + product);
+    console.log("App Component state (unit)" + unit);
+
+    //console.log(showResult);
   })
 
     return (
@@ -35,13 +35,17 @@ export const App: FunctionComponent<InputInterface> = () => {
           unitContext: [unit, setUnit],
           inputStringContext:[inputString, setInputString],
           resultContext:[result, setResult],
-          showResultContext:[showResult, setShowResult]
+          showResultContext:[showResult, setShowResult],
         }} >
             <Input/>
             <Conversion/>
             <Product/>
             <div>
-              <button onClick={(e:React.MouseEvent) =>{setShowResult(showResult + 1)}}>Convert</button>
+              <button onClick={(e:React.MouseEvent) =>{
+                setShowResult(showResult + 1);
+                setResult(inputString);
+              }}
+              >Convert</button>
             </div>
             <Result/>
         </AppContext.Provider>
