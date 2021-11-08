@@ -10,54 +10,38 @@ export function Result(props: InputInterface) {
   const [unit, setUnit] = unitContext;
   const [product, setProduct] = productContext;
   const [showResult, setShowResult] = showResultContext;
-  var resultArr: Array<number> = [];
-  function inputCleanse(x:string){
-    //let arr = x.ToCharArray();
-    //arr.filter((x))
-  }
+  //var resultArr: Array<number> = [];
+  const [resultArr, setResultArr] = useState<Array<string>>();
   /*
-  function convertKilos(arr:Array<number>){
-    return arr.forEach((num:number) =>{
-      num*2.204;
-    })
+  function calculateConversion(item:<string>){
+    return item.concat("  lbs");
   }
   */
-  function convertHectares(arr:Array<number>){
-    return arr.forEach((num:number) =>{
-      num*2.247;
-    })
+  function calculateResultArr(){
+    /*
+    return const splitArr:Array<string> = result.split(" ").map((item:string) =>{
+      //item = calculateConversion(item);
+      //item = item.concat(" lbs");
+
+    });
+    */
+    return result.split(" ");
+    /*
+    return temp.map((item: string) => {
+      item.concat(" lbs");
+    });
+    */
+    //setResultArr(splitArr);
+    //window.console.log(splitArr);
   }
-  function convertKilosHectares(arr:Array<number>){
-    return arr.forEach((num:number) =>{
-      (((num*2.21)/56)/2.471);
-    })
+//if(result != undefined){
+useEffect(() => {
+  if(result!=undefined){
+    window.console.log(calculateResultArr());
+    window.console.log(result);
   }
-  if(result != undefined){
-    useEffect(()=>{
-      //if(inputCleanse(result) != true){
-      if(result == " " ){
-        setResult("Please enter numbers to convert.");
-      }else{
-        //if(result.includes(" ")){
-          //resultArr = result.split(" ");
-          resultArr = result.split(" ").map((item:string) =>{
-            +item;
-          })
-          switch(unit){
-            case "kg -> lb":
-              //convertKilos(resultArr);
-              resultArr.forEach((num:number) =>{num*2.204;});
-              break;
-            case "ha -> ac":
-              convertHectares(resultArr);
-              break;
-            case "kg/ha -> bu/ac":
-              convertKilosHectares(resultArr);
-          }
-        //}
-      }
-    })
-  }
+}, [showResult]);
+//}
 
 
   if(showResult != 0){
@@ -67,8 +51,9 @@ export function Result(props: InputInterface) {
     //increment++;
     return (
       <div>
+        <div>element is visible</div>
         <table>
-        <tr>element is visible</tr>
+        <tr></tr>
         </table>
       </div>
     );

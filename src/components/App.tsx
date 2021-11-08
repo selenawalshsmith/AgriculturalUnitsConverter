@@ -22,8 +22,8 @@ export const App: FunctionComponent<InputInterface> = () => {
   const [result, setResult] = useState<string>();
 
   useEffect(()=>{
-    console.log("App Component state (product)" + product);
-    console.log("App Component state (unit)" + unit);
+    //console.log("App Component state (product)" + product);
+    //console.log("App Component state (unit)" + unit);
 
     //console.log(showResult);
   })
