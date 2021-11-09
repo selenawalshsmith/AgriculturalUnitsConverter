@@ -19,13 +19,14 @@ export const App: FunctionComponent<InputInterface> = () => {
   //only update Result component when showResult increments.
   //Result component renders empty div while showResult == 0
   const [showResult, setShowResult] = useState<number>(0);
-  const [result, setResult] = useState<string>();
+  const [result, setResult] = useState<Array<any>>();
 
   useEffect(()=>{
     //console.log("App Component state (product)" + product);
     //console.log("App Component state (unit)" + unit);
 
     //console.log(showResult);
+    //setResult(inputString.split(" "));
   })
 
     return (
@@ -43,7 +44,8 @@ export const App: FunctionComponent<InputInterface> = () => {
             <div>
               <button onClick={(e:React.MouseEvent) =>{
                 setShowResult(showResult + 1);
-                setResult(inputString);
+                const results = inputString.split(" ");
+                setResult(results);
               }}
               >Convert</button>
             </div>
