@@ -10,7 +10,7 @@ export function Result(props: InputInterface) {
   const [product, setProduct] = productContext;
   const [showResult, setShowResult] = showResultContext;
 
-
+  /*
   const checkForBadChar = (str:string) => {
     var badChars: string = "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-=";
     for(let i = 0; i <= badChars.length; i++){
@@ -19,13 +19,8 @@ export function Result(props: InputInterface) {
       }
     }
   }
+  */
  function calculate(element:any){
-   //return element += " lbs";
-   if(!!element == false  ){
-     return "Enter numbers to be converted.";
-   }else if(checkForBadChar(element) == true){
-     return "Enter numbers to be converted.";
-   } else{
      var inputNum: number;
      switch(unit){
        case "kg -> lb":
@@ -48,7 +43,7 @@ export function Result(props: InputInterface) {
         case "default":
           break;
      }
-   }
+   //}
  }
 
   useEffect(()=>{}, [showResult]);
@@ -56,17 +51,10 @@ export function Result(props: InputInterface) {
   if(showResult != 0){
     const tableRows = result.map( (element:any)=> {
       element = calculate(element);
-      if(element == "Enter numbers to be converted."){
-        return(
-          <div>Enter numbers to be converted.</div>
-        );
-        return;
-      } else{
         return(
           <div>{ element }</div>
         );
-      }
-    })
+    });
   return(
       <div>
         <table>

@@ -21,13 +21,22 @@ export const App: FunctionComponent<InputInterface> = () => {
   const [showResult, setShowResult] = useState<number>(0);
   const [result, setResult] = useState<Array<any>>();
 
-  useEffect(()=>{
-    //console.log("App Component state (product)" + product);
-    //console.log("App Component state (unit)" + unit);
-
-    //console.log(showResult);
-    //setResult(inputString.split(" "));
-  })
+  var illegalCharsPresent: boolean = false;
+  var checkIfNumArr: Array<any> = [];
+  function checkIfNum(arr:  Array<any>){
+    const illegalCharsPresent = arr.every((element: any) => {
+      if(isNaN(Number(element))){
+        return false;
+      }
+      return true;
+    });
+    if(illegalCharsPresent == false){
+      alert("Error: Please enter numeric values only");
+    } else{
+      setShowResult(showResult + 1);
+      setResult(arr);
+    }
+  }
 
     return (
         <div>
@@ -43,9 +52,18 @@ export const App: FunctionComponent<InputInterface> = () => {
             <Product/>
             <div>
               <button onClick={(e:React.MouseEvent) =>{
-                setShowResult(showResult + 1);
-                const results = inputString.split(" ");
-                setResult(results);
+                const checkIfNumArr = inputString.split(" ");
+                //setShowResult(showResult + 1);
+                //setResult(results);
+
+                checkIfNum(checkIfNumArr);
+                /*
+                if(illegalCharsPresent == false){
+                  setShowResult(showResult + 1);
+                  setResult(checkIfNumArr);
+                }
+                */
+
               }}
               >Convert</button>
             </div>
