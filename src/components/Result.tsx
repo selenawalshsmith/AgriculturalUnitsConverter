@@ -1,7 +1,8 @@
 import * as React from "react";
-import {useEffect, useContext, useState, useReducer} from "react";
+import {useEffect, useContext} from "react";
 import InputInterface from '../InputInterface';
 import {AppContext} from "../AppContext";
+import {calculate} from "./Util"
 
 export function Result(props: InputInterface) {
   const {productContext, unitContext, resultContext, showResultContext} = useContext(AppContext);
@@ -10,56 +11,20 @@ export function Result(props: InputInterface) {
   const [product, setProduct] = productContext;
   const [showResult, setShowResult] = showResultContext;
 
-  /*
-  const checkForBadChar = (str:string) => {
-    var badChars: string = "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-=";
-    for(let i = 0; i <= badChars.length; i++){
-      if(str.indexOf(badChars[i]) > -1){
-        return true;
-      }
-    }
-  }
-  */
- function calculate(element:any){
-     var inputNum: number;
-     switch(unit){
-       case "kg -> lb":
-         inputNum= Number(element)*2.04;
-         return inputNum.toString() + " lb.";
-         break;
-       case "ha -> ac":
-        inputNum= Number(element)*2.471;
-        return inputNum.toString() + " ac";
-         break;
-       case "kg/ha -> bu/ac":
-         if(product == "soy"){
-          inputNum= (((Number(element)*2.21)/60)/2.471);
-         }else{
-           inputNum= (((Number(element)*2.21)/56)/2.471);
-         }
-         return inputNum.toString().substring(0,4) + " bu/ac";
-         //.slice(3)
-         break;
-        case "default":
-          break;
-     }
-   //}
- }
-
   useEffect(()=>{}, [showResult]);
 
   if(showResult != 0){
     const tableRows = result.map( (element:any)=> {
-      element = calculate(element);
-        return(
-          <div>{ element }</div>
-        );
+      element = calculate(element, unit, product);
+      return(
+        <div>{ element }</div>
+      );
     });
-  return(
+    return(
       <div>
         <table>
           <tr>
-            {tableRows}
+            <td>{tableRows}</td>
           </tr>
         </table>
       </div>
@@ -70,5 +35,3 @@ export function Result(props: InputInterface) {
     );
   }
 }
-
-//export default Result;

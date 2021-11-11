@@ -18,9 +18,9 @@ export function Conversion(props: InputInterface) {
             }
           }
         >
-          <option value="kg -> lb">kilograms -&#62; lbs</option>
-          <option value="ha -> ac">hectares -&#62; acres</option>
-          <option value="kg/ha -> bu/ac">kilograms&#47;hectare -&#62; bushels&#47;acres</option>
+          <option value="kg -> lb">kg -&#62; lb</option>
+          <option value="ha -> ac">ha -&#62; ac</option>
+          <option value="kg/ha -> bu/ac">kg&#47;ha -&#62; bu&#47;ac</option>
         </select>
       </div>
 
