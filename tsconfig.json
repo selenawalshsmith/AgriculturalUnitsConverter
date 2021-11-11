@@ -7,5 +7,8 @@
     "jsx": "react",
     "allowJs": true,
     "moduleResolution": "node",
-  }
+    "esModuleInterop": true
+  },
+  "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"],
+  "include": ["./src/**/*.tsx", "./src/**/*.ts"]
 }
