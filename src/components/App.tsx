@@ -9,6 +9,7 @@ import {Conversion} from "./Conversion";
 import {Product} from "./Product";
 import {Result} from "./Result";
 import {checkIfNum} from "./Util";
+import '../styles/App.css';
 
 export const App: FunctionComponent<InputInterface> = () => {
   const [inputString, setInputString] = useState<string>("");
@@ -31,7 +32,7 @@ export const App: FunctionComponent<InputInterface> = () => {
     };
   }
   return (
-    <div>
+    <div className="app">
       <h3>Agricultural Units Converter</h3>
       <AppContext.Provider value={{
         productContext: [product, setProduct],
