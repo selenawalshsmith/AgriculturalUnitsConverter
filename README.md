@@ -27,7 +27,7 @@
 <pre><code class="has-line-data" data-line-start="33" data-line-end="35" class="language-sh">docker run app
 </code></pre>
 <p class="has-line-data" data-line-start="35" data-line-end="36">Navigate to the file location of the project in your browser.</p>
-<pre><code class="has-line-data" data-line-start="37" data-line-end="39" class="language-sh">file:///Users/[me]/path/to/project/AgriculturalUnitsConverter/app/index.html
+<pre><code class="has-line-data" data-line-start="37" data-line-end="39" class="language-sh">file:///Users/[me]/path/to/project/AgriculturalUnitsConverter/index.html
 </code></pre>
 <h2 class="code-line" data-line-start=43 data-line-end=44 ><a id="Test_43"></a>Test</h2>
 <p class="has-line-data" data-line-start="44" data-line-end="45">Run this command to run Jest tests for the utility functions.</p>
