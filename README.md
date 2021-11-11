@@ -11,7 +11,7 @@
 </li>
 </ul>
 <h2 class="code-line" data-line-start=12 data-line-end=13 ><a id="Installation_12"></a>Installation</h2>
-<p class="has-line-data" data-line-start="14" data-line-end="15">Make sure you have git and npm installed.</p>
+<p class="has-line-data" data-line-start="14" data-line-end="15">Make sure you have npm and docker installed.</p>
 <p class="has-line-data" data-line-start="16" data-line-end="17">First, clone the repository and cd to the directory. 👯</p>
 <pre><code class="has-line-data" data-line-start="18" data-line-end="20" class="language-sh">git <span class="hljs-built_in">clone</span>
 </code></pre>
