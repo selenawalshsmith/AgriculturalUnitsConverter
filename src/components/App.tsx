@@ -32,23 +32,29 @@ export const App: FunctionComponent<InputInterface> = () => {
     };
   }
   return (
-    <div className="app">
-      <h3>Agricultural Units Converter</h3>
-      <AppContext.Provider value={{
-        productContext: [product, setProduct],
-        unitContext: [unit, setUnit],
-          inputStringContext:[inputString, setInputString],
-          resultContext:[result, setResult],
-          showResultContext:[showResult, setShowResult],
-      }} >
-        <Input/>
-        <Conversion/>
-        <Product/>
-        <div>
-          <button onClick={handleOnClick}>Convert</button>
-        </div>
-        <Result/>
-      </AppContext.Provider>
+    <div style={{
+      margin:"auto", width:"50%",
+      border:"5px solid #40E0D0",
+      padding: "10px",
+      borderRadius:"25px"}}>
+      <div style={{textAlign: "center", padding: "10px", margin: "10px",}}>
+        <h3>Agricultural Units Converter</h3>
+        <AppContext.Provider value={{
+          productContext: [product, setProduct],
+          unitContext: [unit, setUnit],
+            inputStringContext:[inputString, setInputString],
+            resultContext:[result, setResult],
+            showResultContext:[showResult, setShowResult],
+        }} >
+          <Input/>
+          <Conversion/>
+          <Product/>
+          <div>
+            <button onClick={handleOnClick}>Convert</button>
+          </div>
+          <Result/>
+        </AppContext.Provider>
+      </div>
     </div>
   );
 }

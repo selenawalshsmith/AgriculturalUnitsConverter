@@ -6,8 +6,3 @@ export default interface Input{
   //[result:number]?: string;
   result?: Array<any>;
 }
-
-export default interface InputState{
-  inputString?: string;
-  unit?: string;
-}
